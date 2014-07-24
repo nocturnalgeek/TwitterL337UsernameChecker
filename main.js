@@ -54,7 +54,7 @@ $(".btn").click(function() {
 
 function check(suggestions) {
 	$.each(suggestions, function(index, value) {
-		$.getJSON('http://anyorigin.com/dev/get/?url=https%3A//twitter.com/users/username_available%3Fusername%3D'+index+'&callback=?', function(data){
+		$.getJSON('http://whateverorigin.org/dev/get/?url=https%3A//twitter.com/users/username_available%3Fusername%3D'+index+'&callback=?', function(data){
 			if(data.contents.msg.indexOf("Available")!=-1){
 				$("#"+index).attr('class','success');
 				$("#"+index+"-availability").html("available!");
