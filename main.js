@@ -54,12 +54,12 @@ $(".btn").click(function() {
 
 function check(suggestions) {
 	$.each(suggestions, function(index, value) {
-		$.getJSON('http://jsonp.guffa.com/Proxy.ashx?url=twitter.com/users/username_available?username='+index+'&callback=?', function(data){
-			if(data.reason.indexOf("available")!=-1){
+		$.get('https://twitter.com/users/username_available?username='+index, function(data){
+			if(data.responseText.indexOf("available")!=-1){
 				$("#"+index).attr('class','success');
 				$("#"+index+"-availability").html("available!");
 			}
-			if(data.reason.indexOf("taken")!=-1){
+			if(data.responseText.indexOf("taken")!=-1){
 				$("#"+index).attr('class','danger');
 				$("#"+index+"-availability").html("taken");
 			}
